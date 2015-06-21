@@ -33,14 +33,15 @@ public class ImageView extends JPanel{
         Graphics2D g2d = (Graphics2D) grphcs;
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 				RenderingHints.VALUE_ANTIALIAS_ON);
+        try{
         for(User user: uzytkownik){
             g2d.setColor(user.circle.getColor());
 
-            try{
+            
             g2d.fillOval((int)user.myszka.getX() - user.circle.getDiameter()/2,
                          (int)user.myszka.getY() - user.circle.getDiameter()/2,
                          user.circle.getDiameter(),user.circle.getDiameter());
-            }catch(NullPointerException e){}
         }
+        }catch(NullPointerException e){}
     }
 }
